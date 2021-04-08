@@ -1,0 +1,63 @@
+<div class="example-container">
+    <header class="header">
+        <!-- Paginator -->
+        <mat-paginator [pageSizeOptions]="[10, 20, 50, 100, 200, 500]" [pageIndex]="0" [pageSize]="10"
+            showFirstLastButtons></mat-paginator>
+
+            <mat-form-field appearance="legacy">
+            <input matInput [(ngModel)]="searchField" type="matInput" (keyup)="applyFilter($event.target.value)"
+                placeholder="Search" autocomplete="off">
+            <button mat-button mat-icon-button matSuffix (click)="clearSearchField()" *ngIf="searchField">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </header>
+
+    <mat-table #table [dataSource]="contactDataSource" 
+    matSort matSortActive="firstname" matSortDirection="asc"
+        matSortDisableClear>
+
+        <!-- First Name Column -->
+        <ng-container matColumnDef="firstname">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> First Name</mat-header-cell>
+            <mat-cell *matCellDef="let contact"> {{contact.firstname}} </mat-cell>
+        </ng-container>
+
+        <!-- Last Name Column -->
+        <ng-container matColumnDef="lastname">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> Last Name </mat-header-cell>
+            <mat-cell *matCellDef="let contact"> {{contact.lastname}} </mat-cell>
+        </ng-container>
+
+        <!-- Phone Number Column -->
+        <ng-container matColumnDef="phone">
+            <mat-header-cell mat-sort-header *matHeaderCellDef> Phone Number </mat-header-cell>
+            <mat-cell *matCellDef="let contact"> {{contact.phone}} </mat-cell>
+        </ng-container>
+
+        <!-- Actions (Delete) Column -->
+        <ng-container matColumnDef="actions">
+            <mat-header-cell class="w-75" *matHeaderCellDef> </mat-header-cell>
+            <mat-cell *matCellDef="let contact">
+                <!-- Can add other buttons here, like edit -->
+                <button (click)="deleteContact(contact)" mat-icon-button color="primary">
+                    <mat-icon aria-label="Delete Contact">delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <footer class="footer">
+        <!-- Create Contact button -->
+        <button (click)="openNewContactDialog();" id="btn_create" mat-raised-button color="primary">Create
+            Contact</button>
+
+        <!-- confirm deletes -->
+        <mat-checkbox [(ngModel)]="confirmDeleted" [color]="'primary'"><small>Confirm before Deleting</small>
+        </mat-checkbox>
+
+    </footer>
+
+</div>

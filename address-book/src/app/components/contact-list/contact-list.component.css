@@ -1,0 +1,70 @@
+.header {
+  min-height: 80px;
+  max-height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #fafafa;
+  border-width:  0 0 1px 0;
+  border-style: solid;
+  border-color: #ccc;
+}
+
+.header mat-form-field {
+  /* search box */
+  float:left;
+  background-color: transparent;
+  margin: 20px;
+}
+
+mat-table {
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+.mat-row:hover {
+  background-color: #fafafa;
+}
+.mat-row button {
+  display: none;  
+}
+mat-checkbox {
+  float:right;  
+  margin:15px 20px 15px 60px;
+}
+mat-checkbox small {
+  color:#888;
+}
+.mat-row:hover button {
+  display: block;
+}
+
+.mat-paginator {
+    background-color:transparent;
+    float:right;
+    margin:10px;
+}
+.footer {
+    position: fixed;
+    bottom:0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: #eee;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: #bbb;
+}
+
+
+.mat-header-row{
+    margin-top:0px;
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+    background-color: #eee;
+    }
+#btn_create {
+  margin:10px;
+}
