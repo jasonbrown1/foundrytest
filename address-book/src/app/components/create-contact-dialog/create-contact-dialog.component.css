@@ -1,0 +1,33 @@
+.full-width {
+    width: 100%;
+  }
+  
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    padding:10px;
+  }
+  
+  .col {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .col:last-child {
+    margin-right: 0;
+  }
+  
+  .al-right {
+      float:right;
+    }
+  small {
+      color:rgba(0,0,0,.5);
+      float: left;
+      display:block;
+      margin-top: 25px;
+    }
+
+.dlg_footer {
+    margin-top:120px;
+}

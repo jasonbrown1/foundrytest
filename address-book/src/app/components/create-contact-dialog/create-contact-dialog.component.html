@@ -1,0 +1,42 @@
+<form [formGroup]="newContactForm" novalidate (ngSubmit)="onSubmit()">
+    <h2 mat-dialog-title>Create Contact</h2>
+    <mat-dialog-content>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="First Name*" formControlName="firstName">
+                        <mat-error *ngIf="newContactForm.controls['firstName'].hasError('required')">
+                            First name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Last Name*" formControlName="lastName">
+                        <mat-error *ngIf="newContactForm.controls['lastName'].hasError('required')">
+                            Last name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-dialog-content>
+
+    <div class="dlg_footer">
+        <mat-dialog-actions class="al-right">
+            <button class="mat-button" (click)="onCancel()">Cancel</button>
+            <button class="mat-raised-button mat-primary" type="submit">Save</button>
+        </mat-dialog-actions>
+        <small>* Denotes a required field.</small>
+    </div>
+</form>
